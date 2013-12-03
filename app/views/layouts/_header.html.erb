@@ -7,20 +7,24 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Imnotproudof</a>
+    <a class="navbar-brand" <%= link_to "Imnotproudof", root_path, class: "brand" %>
+
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav ">
       <li><a  <%= link_to 'Home',  root_path %> </li></a>
-      </a></li>
       <li><a  <%= link_to 'About',  about_path %> </a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-      <li> <%= link_to "Login", root_path %> </a></li>
-      
+      <% if user_signed_in? %>
+        <li> <%= link_to "Edit Profile", edit_user_registration_path %> </a></li>
+        <li> <%= link_to "Logout", destroy_user_session_path, method: :delete %> </a></li>
+      <% else %>
+        <li> <%= link_to "Login", new_user_session_path %> </a></li>
+      <% end %>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>

@@ -1,14 +1,39 @@
-<div class="jumbotron">
-	<h1>Welcome to ImNotProudOf !</h1>
-	<p>
-		You've found the home page of the
-	    <%= link_to "ImNotProudOf" , "http://imnotproudof.com"%>
-	    	website </p>
-	</p>
-	<p>
+<% if user_signed_in? %>
+<div class="breadcrumb"> 
+  <h1> You're logged in. </h1>
+  </div>
+<% else %>
 
-<p> <%= link_to 'Sign up now!',  "#" , class: "btn btn-large btn-primary" %> </p>
-</div>
 
-	</p>
-</div>
+	<div class="jumbotron">
+		<h1>Welcome to ImNotProudOf !</h1>
+		<p>
+			You've found the home page of the
+		    <%= link_to "ImNotProudOf" , "http://imnotproudof.com"%>
+		    	website </p>
+		</p>
+		<p>
+
+	<p> <%= link_to 'Sign up now!',  new_user_registration_path , class: "btn btn-large btn-info" %> </p>
+	</div>
+
+	<div class="col-md-4">
+          <h2>What is that ?</h2>
+          <p>The social psychology network. </p>
+       
+        </div>
+	<div class="col-md-4">
+          <h2>Tell the world your deeper secrets !</h2>
+          <p>
+          		Anonymously...
+          </p>
+       </div>
+    <div class="col-md-4">
+          <h2>How does it work ?</h2>
+          <p>Tell us your secrets and lets see what the world thinks about it... </p>
+    
+        </div>   
+		</p>
+	</div>
+	<hr>
+<% end %>
